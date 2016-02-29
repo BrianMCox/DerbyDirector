@@ -1,0 +1,45 @@
+﻿
+<section class="row">
+    <select class="form-control" ng-model="vm.selectedGroupName" ng-change="vm.updateResults()">
+        <option ng-repeat="group in vm.results">{{group.GroupName}}</option>
+    </select>
+</section>
+
+<section id="results">
+    <div class="row heading">
+        <div class="col-sm-1 center">Place</div>
+        <div class="col-sm-3">Racer</div>
+        <div class="col-sm-2 center">Total</div>
+        <div class="col-sm-2 center">Average</div>
+    </div>
+    <div ng-repeat="result in vm.selectedGroup.IndividualResults" class="row data">
+        <div class="col-sm-1 center">
+            <i class="fa fa-trophy" 
+               ng-class="{ 'gold': $index===0, 'silver': $index===1, 'bronze': $index===2 }" 
+               ng-click="vm.showResult($index)"></i>
+            {{$index+1}}
+        </div>
+
+        <div ng-if="vm.selectedGroup.IndividualResults[$index].Visible">
+            <div class="col-sm-3">
+                {{result.Name}}
+            </div>
+
+            <div class="col-sm-2 center">
+                {{result.TotalTime.toFixed(2)}} sec.
+            </div>
+
+            <div class="col-sm-2 center">
+                {{result.AverageTime.toFixed(2)}} sec.
+            </div>
+
+            <div class="col-sm-2 center" ng-if="!$first">
+                {{(vm.selectedGroup.IndividualResults[0].TotalTime - result.TotalTime).toFixed(2)}} sec.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--<pre>
+{{vm.results | json}}
+</pre>-->

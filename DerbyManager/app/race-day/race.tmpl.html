@@ -1,0 +1,113 @@
+﻿
+<div class="row" ng-if="vm.schedule.length === 0">
+    <!--<h2>{{vm.event.name}} - Race Day!</h2>-->
+    <button ng-click="vm.start()" class="btn btn-default">Start</button>
+</div>
+
+<div ng-if="vm.schedule.length > 0" class="row header">
+    <a href="" ng-click="vm.previous()" ng-disabled="vm.raceIndex === 0" class="btn pull-left" >
+        <i class="fa fa-3x fa-chevron-circle-left"></i>
+    </a>
+    Heat #{{vm.currentRace.number}} of {{vm.schedule.length}} ({{vm.currentRace.groupName}})
+    <a href="" ng-click="vm.next()" ng-disabled="vm.raceIndex === (vm.schedule.length-1)" class="btn pull-right">
+        <i class="fa fa-3x fa-chevron-circle-right"></i>
+    </a>
+</div>
+
+<div ng-if="vm.schedule.length > 0" class="row heading">
+    <div class="col-sm-1 lane">Lane</div>
+    <div class="col-sm-3">Driver</div>
+    <div class="col-sm-2">Car</div>
+    <div class="col-sm-1">Time</div>
+    <div class="col-sm-2">Speed (Scale)</div>
+    <div class="col-sm-3"></div>
+</div>
+
+<section ng-if="vm.schedule.length > 0" class="raceInfo">
+    <div class="row" ng-repeat="ln in vm.currentRace.laneAssignments">
+        <div class="col-sm-1 lane">
+            {{::ln.Lane}}
+        </div>
+
+        <div class="col-sm-3 driver">
+            <i class="fa fa-user"></i>
+            {{::ln.Driver}}
+        </div>
+
+        <div class="col-sm-2 driver">
+            <img src="../../Content/imgs/car.png" class="pull-right" />
+            <span class="pull-left">#{{::ln.CarNumber}}</span>
+        </div>
+
+        <div class="col-sm-1 time">
+            <input type="number" ng-model="ln.Time" ng-change="vm.calculateScaleSpeed(ln)" class="form-control" />
+            <!--<b><span ng-change="vm.calculateScaleSpeed(ln)">{{ln.Time}}</span> </b>-->
+        </div>
+
+        <div class="col-sm-2">
+            <em>{{ln.ScaleSpeed.toFixed(2)}} MPH</em>
+        </div>
+
+        <div class="col-sm-3">
+        </div>
+    </div>
+</section>
+
+<section id="upNext" ng-if="vm.nextRace" class="pull-right">
+    <header>
+        Up Next
+        <i class="fa fa-clock-o"></i>
+    </header>
+
+    <ul>
+        <li ng-repeat="p in vm.nextRace.laneAssignments">
+            #{{p.CarNumber}} {{p.Driver}}
+        </li>
+    </ul>
+</section>
+
+<section id="previousResults" ng-if="vm.raceIndex > 0 && vm.schedule[vm.raceIndex-1].laneAssignments[0].Time > 0" class="pull-left">
+    <header>
+        <i class="fa fa-flag-checkered"></i>
+        Previous
+    </header>
+
+    <ul>
+        <li ng-repeat="r in vm.schedule[vm.raceIndex-1].laneAssignments | orderBy: 'Time'">
+            {{$index+1}}. {{r.Driver}} ({{r.Time}})
+        </li>
+    </ul>
+</section>
+
+<section id="finish" ng-if="vm.currentRace.laneAssignments && !vm.nextRace" class="pull-right">
+    <button ui-sref="results" class="btn btn-success"><i class="fa fa-trophy"></i> Finish</button>
+</section>
+
+<i class="fa fa-2x fa-bars trackInfoBtn" ng-class="{'open': vm.showTrackInfo, 'closed': !vm.showTrackInfo}" 
+   ng-click="vm.showTrackInfo = !vm.showTrackInfo"></i>
+<section id="trackInfo" ng-class="{'open': vm.showTrackInfo, 'closed': !vm.showTrackInfo}">
+    <h3>Track Info</h3>
+    <span>Port: {{vm.track.port.PortName}}</span>
+    <div>
+        <span>
+            <button ng-click="vm.track.testConnection()" class="btn btn-default">Test Connection</button>
+            Last Test: {{vm.track.lastTest}}
+        </span>
+    </div>
+    
+    <div>
+        <button ng-click="vm.track.newConnection()" class="btn btn-default">New Connection</button>
+    </div>
+    
+    <div>
+        <button ng-click="vm.track.endRace()" class="btn btn-default">End Race</button>
+    </div>
+    
+    <div>
+        <button ng-click="vm.track.clearRace()" class="btn btn-default">Clear Race</button>
+    </div>
+</section>
+
+<!--<pre>
+{{vm.schedule | json}}
+</pre>-->

@@ -1,0 +1,10 @@
+C:\Users\Ben\Desktop\FastTrack\FastTrackLibrary\bin\Release\FastTrackLibrary.dll
+C:\Users\Ben\Desktop\FastTrack\FastTrackLibrary\bin\Release\FastTrackLibrary.pdb
+C:\Users\Ben\Desktop\FastTrack\FastTrackLibrary\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Ben\Desktop\FastTrack\FastTrackLibrary\obj\Release\FastTrackLibrary.dll
+C:\Users\Ben\Desktop\FastTrack\FastTrackLibrary\obj\Release\FastTrackLibrary.pdb
+C:\Users\brian\Desktop\Derby Software\FastTrack Solution\FastTrack\FastTrack\FastTrackLibrary\bin\Release\FastTrackLibrary.dll
+C:\Users\brian\Desktop\Derby Software\FastTrack Solution\FastTrack\FastTrack\FastTrackLibrary\bin\Release\FastTrackLibrary.pdb
+C:\Users\brian\Desktop\Derby Software\FastTrack Solution\FastTrack\FastTrack\FastTrackLibrary\obj\Release\FastTrack.csprojResolveAssemblyReference.cache
+C:\Users\brian\Desktop\Derby Software\FastTrack Solution\FastTrack\FastTrack\FastTrackLibrary\obj\Release\FastTrackLibrary.dll
+C:\Users\brian\Desktop\Derby Software\FastTrack Solution\FastTrack\FastTrack\FastTrackLibrary\obj\Release\FastTrackLibrary.pdb

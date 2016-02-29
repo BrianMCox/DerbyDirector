@@ -1,0 +1,237 @@
+﻿
+body {
+    padding-top: 75px;
+    padding-bottom: 20px;
+    font-family: Arial;
+    background: #cdcdcd;
+    color: #000;
+}
+
+.form-control {
+    color: #000;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+.body-content footer {
+    position: fixed;
+    bottom: 0;
+}
+
+.navbar-inverse {
+    background-color: #003F87;
+    border-color: #003F87;
+    color: #FCD116;
+}
+
+.navbar-nav {
+    font-size: 24px;
+}
+
+.header {
+    font-size: 64px;
+    margin-bottom: 25px;
+    border-bottom: solid 2px;
+}
+
+.heading {
+    font-size: 18px;
+    background: #aaa;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.heading .lane {
+    width: 75px;
+    text-align: center;
+}
+
+.raceInfo {
+
+}
+
+.raceInfo .row {
+    height: 65px;
+    line-height: 65px;
+    margin-bottom: 20px;
+}
+
+.raceInfo .row div img {
+    width: 70px;
+    height: 70px;
+    opacity: .3;
+    margin-top: 3px;
+    margin-right: 5px;
+}
+
+.raceInfo .row div span {
+    border-radius: 40px;
+    height: 40px;
+    line-height: 40px;
+    width: 40px;
+    color: white;
+    background: red;
+    text-align: center;
+    margin-top: 18px;
+    font-size: 16px;
+}
+
+.raceInfo .row .lane {
+    width: 75px;
+    border-radius: 10px;
+    background: #FCD116;
+    margin-left: auto;
+    font-size: 48px;
+    text-align: center;
+    color: #003F87;
+}
+
+.raceInfo .row .driver {
+    font-size: 28px;
+    text-overflow: ellipsis;
+}
+
+.raceInfo .row .time {
+    padding-top: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#upNext, #previousResults {
+    margin-top: 20px;
+}
+
+#upNext header, #previousResults header {
+    font-size: 28px;
+    color: #000;
+    padding-bottom: 10px;
+}
+
+#upNext ul {
+    text-align: right;
+}
+
+#upNext ul li, #previousResults ul li {
+    font-size: 18px;
+    font-style: italic;
+    color: #000;
+    padding-bottom: 10px;
+}
+
+.racerList ul {
+    margin-top: 20px;
+}
+
+.racerList ul li {
+    padding-bottom: 10px;
+}
+
+.btn-success {
+    font-size: 32px;
+}
+
+section#results{
+    margin-top: 50px;
+}
+
+#results .data {
+    font-size: 24px;
+    line-height: 60px;
+}
+
+#results .data div {
+    line-height: 60px;
+}
+
+.center {
+    text-align: center;
+}
+
+.fa-trophy {
+    color: #003F87;
+    font-size: 42px;
+}
+
+.gold {
+    color: #C98910;
+}
+
+.silver {
+    color: #A8A8A8;
+}
+
+.bronze {
+    color: #965A38;
+}
+
+.event section {
+    margin-top: 20px;
+}
+
+.event section header {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+#trackInfo {
+    z-index: 9999;
+    background: #eee;
+    padding: 10px;
+    position: absolute;
+    width: 300px;
+    height: 90%;
+    top: 64px;
+    border: solid 1px #ccc;
+    /*box-shadow: -5px 5px 5px #ccc;*/
+}
+
+.trackInfoBtn {
+    top: 75px;
+    position: absolute;
+    background: #eee;
+    padding: 5px 0 5px 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom: solid 1px #ccc;
+    border-left: solid 1px #ccc;
+    border-top: solid 1px #ccc;
+    transition-property: all;
+	transition-duration: .5s;
+}
+
+.trackInfoBtn.closed {
+    right: 0px;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+.trackInfoBtn.open {
+    right: 300px;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+#trackInfo.open {
+    display: normal;
+    right: 0px;
+    transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+#trackInfo.closed {
+    display: none;
+    right: -300px;
+    transition-property: all;
+	transition-duration: .5s;
+	transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+
+#trackInfo div {
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+#trackInfo button {
+    width: 135px;
+}

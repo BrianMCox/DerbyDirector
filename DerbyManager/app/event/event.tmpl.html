@@ -1,0 +1,64 @@
+﻿
+<section class="event">
+    <!--<button type="button" class="btn btn-default">Add New Event</button>-->
+
+    <form>
+        <section>
+            <header>Event Information</header>
+
+            <div class="form-inline">
+                <input type="text" ng-model="vm.selectedEvent.Name" placeholder="event name..." class="form-control" />
+                <input type="number" ng-model="vm.selectedEvent.Lanes" placeholder="number of lanes..." class="form-control" />
+                <input type="number" ng-model="vm.selectedEvent.TrackLength" placeholder="track length..." class="form-control" />
+            </div>
+        </section>
+
+        <section>
+            <header>Groups</header>
+
+            <div class="form-inline">
+                <input type="text" ng-model="groupName" placeholder="new group name..." class="form-control" />
+                <button type="button" class="btn btn-default" ng-disabled="!groupName" ng-click="vm.addGroup(groupName)">Add</button>
+            </div>
+
+            <ul>
+                <li ng-repeat="group in vm.selectedEvent.Groups" ng-click="vm.setSelectedGroup(group)">
+                    <div class="form-inline">
+                        <input type="text" ng-model="group.Name" class="form-control" />
+                        <input type="text" ng-model="group.Awards" class="form-control" />
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section ng-if="vm.selectedGroup.Name">
+            <header>Divisions - {{vm.selectedGroup.Name}}</header>
+
+            <div class="form-inline">
+                <input type="text" ng-model="divisionName" placeholder="new division name..." class="form-control" />
+                <button type="button" class="btn btn-default" ng-disabled="!divisionName" ng-click="vm.addDivision(divisionName, 'Pack 476')">Add</button>
+            </div>
+
+            <ul>
+                <li ng-repeat="division in vm.selectedGroup.Divisions">
+                    <div class="form-inline">
+                        <input type="text" ng-model="division.Name" class="form-control" />
+                        <input type="text" ng-model="division.Awards" class="form-control" />
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <button type="button" ng-click="vm.save()" ng-disabled="!vm.isEventValid()" class="btn btn-default">Save</button>
+
+    </form>
+
+    <section>
+        <button class="btn btn-default" ng-click="vm.showJson = !vm.showJson">
+            <i class="fa fa-plus" ng-if="!vm.showJson"></i>
+            <i class="fa fa-minus" ng-if="vm.showJson"></i>
+        </button>
+        <pre ng-if="vm.showJson">{{vm.selectedEvent | json}} </pre>
+    </section>
+
+</section>

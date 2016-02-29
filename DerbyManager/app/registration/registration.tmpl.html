@@ -1,0 +1,49 @@
+﻿
+<h1>Registration</h1>
+
+<button class="btn btn-default" ng-if="!vm.newEntrant" ng-click="vm.addNewEntrant()">Add New Entrant</button>
+
+<section id="newEntrant" ng-if="vm.newEntrant" class="form-inline">
+    <label>Racer's Name</label>
+    <input type="text" ng-model="vm.newEntrant.Name" class="form-control" />
+
+    <label>Car Number</label>
+    <input type="number" ng-model="vm.newEntrant.CarNumber" class="form-control" />
+
+    <label>Group</label>
+    <select ng-change="vm.getDivisions(vm.newEntrant.Group)" ng-model="vm.newEntrant.Group" class="form-control">
+        <option ng-repeat="g in vm.groups">{{g}}</option>
+    </select>
+
+    <label>Division</label>
+    <select ng-model="vm.newEntrant.Division"class="form-control">
+        <option ng-repeat="d in vm.divisions">{{d}}</option>
+    </select>
+
+    <button class="btn btn-default" ng-click="vm.cancel()">Cancel</button>
+    <button class="btn btn-default" ng-click="vm.save()">Save</button>
+</section>
+
+<h3>Registered Racers</h3>
+<label style="margin-left: 33px;">Order By:</label>
+<select ng-model="vm.orderField" class="form-control" style="width: 198px; margin-left: 33px; margin-bottom: 10px;">
+    <option>Name</option>
+    <option>CarNumber</option>
+</select>
+<ul class="racerList">
+    <li ng-repeat="e in vm.allEntrants | orderBy: vm.orderField">
+        <div class="form-inline">
+            <label style="width: 30px;">{{$index + 1}}</label>
+            <input type="text" ng-model="e.Name" class="form-control" />
+            <input type="number" ng-model="e.CarNumber" class="form-control" />
+        </div>
+    </li>
+</ul>
+
+<section>
+    <button class="btn btn-default" ng-click="vm.showJson = !vm.showJson">
+        <i class="fa fa-plus" ng-if="!vm.showJson"></i>
+        <i class="fa fa-minus" ng-if="vm.showJson"></i>
+    </button>
+    <pre ng-if="vm.showJson">{{vm.event | json}} </pre>
+</section>

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <link href="/Content/bootstrap.css" rel="stylesheet">
+    <link href="/Content/font-awesome.css" rel="stylesheet">
+    <link href="/Content/site.css" rel="stylesheet">
+</head>
+<body ng-app="pwderby">
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <h2>Pinewood Derby</h2>
+                <!--<a ui-sref="app-home">
+                    <img src="~/Content/imgs/tql-logo.png" />
+                </a>-->
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+
+        <!-- this is where our dynamic content will be inserted, through ui-router -->
+        <ui-view></ui-view>
+
+        <hr />
+        <footer>
+            <p>&copy; 2016 - BMC</p>
+        </footer>
+    </div>
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-ui-router.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/app.route.js"></script>
+    <script src="app/event.service.js"></script>
+    <script src="app/home.controller.js"></script>
+    <script src="app/common/common.services.js"></script>
+    <script src="app/event/event.controller.js"></script>
+    <script src="app/race-day/race.controller.js"></script>
+    <script src="app/race-day/race.service.js"></script>
+    <script src="app/registration/registration.controller.js"></script>
+</body>
+</html>
